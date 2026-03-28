@@ -12,7 +12,11 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  // Removemos o .filter(Boolean) e deixamos apenas o array:
+  plugins: [
+    react(),
+    mode === "development" && componentTagger()
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
